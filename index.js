@@ -1,24 +1,24 @@
-function trimArray (arr) {
+function trimArray(arr) {
   return arr.map(x => x.trim()).filter(x => x !== '')
 }
 
-function KeyedMatrix (str) {
+function KeyedMatrix(str) {
   const lines = trimArray(str.split('\n'))
   const columns = trimArray(lines[0].split('|'))
   const rows = []
   const values = []
   for (const row of lines.slice(1)) {
-  	const data = trimArray(row.split('|'))
+    const data = trimArray(row.split('|'))
     rows.push(data[0])
     values.push(data.slice(1))
   }
   const matrix = {}
   for (let x = 0; x < rows.length; x++) {
     row = rows[x]
-  	matrix[row] = {}
+    matrix[row] = {}
     for (let y = 0; y < columns.length; y++) {
       column = columns[y]
-    	matrix[row][column] = values[x][y]
+      matrix[row][column] = values[x][y]
     }
   }
   return matrix
